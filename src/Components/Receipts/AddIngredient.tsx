@@ -85,7 +85,7 @@ const AddIngredient = ({addIngredient}: {addIngredient: (ingredient: Ingredient,
                         onChange={(e) => handleInputChange(e)}
                     />
                     <input
-                        className="w-[50px] border-r border-gray-300 bg-light-inputPrimaryBg bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg rounded-none px-2 py-1 focus:outline-none focus:border-blue-500"
+                        className="w-[50px] border-r border-gray-300 bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg rounded-none px-2 py-1 focus:outline-none focus:border-blue-500"
                         type="text"
                         id="unit"
                         placeholder="mg"

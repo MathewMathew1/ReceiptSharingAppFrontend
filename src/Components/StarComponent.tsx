@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiSolidStar } from 'react-icons/bi';
 import { useAuth } from '../Contexts/useAuth';
 
