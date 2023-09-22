@@ -8,9 +8,9 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     BASE_ROUTE_URL = "https://localhost:7234"
 }
 else{
-    BASE_API_ROUTES_URL = "https://texteditor-production-eaf9.up.railway.app/api/v1/"
+    BASE_API_ROUTES_URL = "https://receiptsharingapp.azurewebsites.net/api/"
     SITE_ROUTE_URL = "https://shopik.onrender.com"
-    BASE_ROUTE_URL = "https://texteditor-production-eaf9.up.railway.app"
+    BASE_ROUTE_URL = "https://receiptsharingapp.azurewebsites.net/"
 }
 
 const GOOGLE_LOGIN_ROUTE  = BASE_API_ROUTES_URL + "Auth/google"
