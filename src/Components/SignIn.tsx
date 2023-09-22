@@ -1,22 +1,5 @@
-
-
 import { useEffect } from "react";
 import { GOOGLE_LOGIN_ROUTE , DISCORD_LOGIN_ROUTE , GET_RECEIPTS_ROUTE  } from "../routes/routes";
-
-type Provider = {
-  id: string;
-  name: string;
-  type: string;
-  signinUrl: string;
-  callbackUrl: string;
-};
-
-type ProviderName = 'Google' | 'Discord';
-const ICONS: Record<ProviderName, () => JSX.Element> = {
-  "Google": GoogleIcon,
-  "Discord": DiscordIcon
-}
-
 
 const PROVIDERS  = [
   {name: "Google", id: 1, icon: GoogleIcon, signUrl: GOOGLE_LOGIN_ROUTE },
@@ -56,7 +39,6 @@ export default function SignIn() {
             <div><h1 className='text-light-text dark:text-dark-secondaryText text-center bold text-2xl'>Authorize:</h1></div>
             <div className='flex gap-3 flex-col mt-5'>
               {Object.values(PROVIDERS).map((provider) => {
-                const Icon = ICONS[provider.name as ProviderName];
 
                 return(
                   <div key={provider.id} className="flex  items-center justify-center ">

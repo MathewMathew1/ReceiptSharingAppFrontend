@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { severityColors } from '../types/Toast';
 import { AiFillCloseCircle } from "react-icons/ai"
 
@@ -10,7 +10,7 @@ interface ToastProps {
 }
 
 const Toast: React.FC<ToastProps> = ({ variant, message, handleClose, bottom }) => {
-    console.log(bottom)
+
     return (
     <div style={{bottom: `${bottom}px`}} className={`fixed right-[2rem] w-[280px]`}>
         <div className={`max-w-xs ${variant} text-sm text-white rounded-md shadow-lg`} role="alert">

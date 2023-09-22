@@ -1,7 +1,6 @@
 import { BiSolidStar } from "react-icons/bi"
 import { formatDate } from "../Utils/dateFormat"
 import { Review as ReviewType } from "../types/Review"
-import { ProfileImage } from "./ProfileImage"
 import OtherUserProfileDropdown from "./OtherUserProfileDropdown"
 
 const Review = ({review}:{review: ReviewType}) => {

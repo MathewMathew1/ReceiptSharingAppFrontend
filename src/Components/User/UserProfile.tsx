@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { USER_PROFILE_ROUTE } from "../../routes/routes";
 import { LoadingSpinner } from "../LoadingCircle";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import type { UserProfile as UserProfileType } from "../../types/UserTypes";
 import { ProfileImage } from "../ProfileImage";
 import { formatDate } from "../../Utils/dateFormat";
