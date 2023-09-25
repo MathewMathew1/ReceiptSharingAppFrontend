@@ -107,7 +107,7 @@ const ReceiptComponent = () => {
                 }
             </div>
             <div className="flex flex-col sm:flex-row sm:gap-10">
-                <div className="w-full sm:w-[150px]">
+                <div className="w-full sm:w-[180px]">
                     <div>
                         <h3 className="text-[1.6rem] font-bold">Author:</h3>
                         <div className="flex gap-2">
@@ -117,7 +117,7 @@ const ReceiptComponent = () => {
                     </div>
                     <div >
                         <h3 className="text-[1.6rem] font-bold">Ingredients:</h3>
-                        {[...receipt.ingredients, ...receipt.ingredients, ...receipt.ingredients].map((ingredient, index) => (
+                        {[...receipt.ingredients].map((ingredient, index) => (
                             <div key={`${index} ingredient`} className="flex gap-1 glass border-solid border-2 border-indigo-600 p-2">
                                 <div>{ingredient.name}</div>
                                 <div>{ingredient.quantity}</div>
@@ -146,7 +146,7 @@ const ReceiptComponent = () => {
                     </div>
 
                     <div>
-                        {[...receipt.steps, ...receipt.steps, ...receipt.steps, ...receipt.steps].map((step, index) => (
+                        {[...receipt.steps].map((step, index) => (
                             <div className="glass flex gap-2" key={`${index} step`}>
                             <div className="">{index}.</div> 
                             <div className="flex-1 text-left">{step}</div>
