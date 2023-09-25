@@ -28,6 +28,12 @@ const ProfileDropdown = ({isOpen}:{isOpen: boolean}) => {
                         Your receipts
                     </a>
                     <a
+                        href="/user/feed"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-dark-secondaryBg dark:text-dark-text"
+                    >
+                        Receipt Feed
+                    </a>
+                    <a
                         href="/new/receipt"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-dark-secondaryBg dark:text-dark-text"
                     >
