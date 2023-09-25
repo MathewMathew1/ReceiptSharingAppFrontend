@@ -14,6 +14,7 @@ import Button from "../Button";
 import StarRating from "../StarComponent";
 import Review from "../Review";
 import ReviewWriter from "../ReviewWriter";
+import OtherUserProfileDropdown from "../OtherUserProfileDropdown";
 
 const ReceiptComponent = () => {
     const [receipt, setReceipt] = useState<Receipt>()
@@ -107,29 +108,38 @@ const ReceiptComponent = () => {
             </div>
             <div className="flex flex-col sm:flex-row sm:gap-10">
                 <div className="w-full sm:w-[150px]">
-                    <h3 className="text-[1.6rem] font-bold">Ingredients:</h3>
-                    {[...receipt.ingredients, ...receipt.ingredients, ...receipt.ingredients].map((ingredient, index) => (
-                        <div key={`${index} ingredient`} className="flex gap-1 glass border-solid border-2 border-indigo-600 p-2">
-                            <div>{ingredient.name}</div>
-                            <div>{ingredient.quantity}</div>
-                            <div>{ingredient.unit}</div>
-                            <div>{ingredient.optional? "*" : ""}</div>
-                        </div>
-                    ))}
-
                     <div>
-                        <p className="text-[0.9rem] pl-2"> * - optional ingredient</p>
+                        <h3 className="text-[1.6rem] font-bold">Author:</h3>
+                        <div className="flex gap-2">
+                            <OtherUserProfileDropdown user={receipt.user} position="right"/> 
+                            <div className="flex-1 text-left">{receipt.user.username? receipt.user.username: receipt.user.name}</div>
+                        </div>
                     </div>
+                    <div >
+                        <h3 className="text-[1.6rem] font-bold">Ingredients:</h3>
+                        {[...receipt.ingredients, ...receipt.ingredients, ...receipt.ingredients].map((ingredient, index) => (
+                            <div key={`${index} ingredient`} className="flex gap-1 glass border-solid border-2 border-indigo-600 p-2">
+                                <div>{ingredient.name}</div>
+                                <div>{ingredient.quantity}</div>
+                                <div>{ingredient.unit}</div>
+                                <div>{ingredient.optional? "*" : ""}</div>
+                            </div>
+                        ))}
 
-                    <div className="flex items-center gap-1 pl-2">
                         <div>
-                            {receipt.minCookDuration}-{receipt.maxCookDuration}
+                            <p className="text-[0.9rem] pl-2"> * - optional ingredient</p>
                         </div>
-                        <div >
-                            <Tooltip tooltipText="Cook duration"><BsClockFill/></Tooltip>
+
+                        <div className="flex items-center gap-1 pl-2">
+                            <div>
+                                {receipt.minCookDuration}-{receipt.maxCookDuration}
+                            </div>
+                            <div >
+                                <Tooltip tooltipText="Cook duration"><BsClockFill/></Tooltip>
+                            </div>
                         </div>
-                    </div>
-                </div>  
+                    </div>  
+                </div>
                 <div className="flex-1">
                     <div className="text-left sm:pt-5 break-all">
                         {receipt.description}
