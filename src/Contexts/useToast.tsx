@@ -2,7 +2,7 @@ import  {createContext, useContext, useEffect, useState,} from "react";
 import useArray from "../CustomHooks/useArray"
 import { severityColors } from "../types/Toast";
 
-const SNACKBAR_SCREEN_TIME = 50000
+const SNACKBAR_SCREEN_TIME = 5000
 const MAXIMUM_AMOUNT_OF_SNACKBARS = 3
 let idOfNextToast = 1
 
