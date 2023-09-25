@@ -1,0 +1,1 @@
+export const INPUT_CLASS = "bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
