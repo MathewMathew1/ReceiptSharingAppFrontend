@@ -23,10 +23,14 @@ type FormDataType = {
     videoLink: string
 }
 
-type CreateReceiptProps = {
-    isUpdate: boolean; // Indicates whether it's an update or create mode
-    defaultValues?: Receipt; // Default values for updating (optional)
-    cancelFunction?: () => void
+type CreateReceiptProps= {
+    isUpdate: true; // When isUpdate is true
+    defaultValues: Receipt; // defaultValues must be provided and not null
+    cancelFunction?: () => void;
+} | {
+    isUpdate: false; // When isUpdate is false
+    defaultValues?: Receipt; // defaultValues is optional
+    cancelFunction?: () => void;
 };
 
 const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, cancelFunction }) => {
@@ -43,7 +47,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
           ingredients: defaultValues? defaultValues.ingredients: [],
           minCookDuration: defaultValues? defaultValues.minCookDuration: 30,
           maxCookDuration: defaultValues? defaultValues.maxCookDuration: 60,
-          videoLink: defaultValues? defaultValues.videoLink:  "https://www.youtube.com/embed/EaYqsHkwuDw?si=dwa3_RIWSf7RhGV6"
+          videoLink: defaultValues? defaultValues.videoLink:  ""
           // Add more fields as needed
         };
     });
@@ -69,9 +73,11 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
         const stepsError = arrayLengthValidator('Steps', formData.steps, 1, 30);
         if (stepsError) newErrors.steps = stepsError;
 
-        const imagesError = arrayLengthValidator('Images', formData.steps, 1, 30);
-        if (imagesError) newErrors.images = imagesError;
-
+        if(isUpdate){
+            const imagesError = arrayLengthValidator('Images', images, 1, 30);
+            if (imagesError) newErrors.images = imagesError;
+        }
+       
         const ingredientsError = arrayLengthValidator('Ingredients', formData.ingredients, 1, 100);
         if (ingredientsError) newErrors.ingredients= ingredientsError;
 
@@ -339,6 +345,13 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
                             :
                                 <div>
                                     <h3>Images</h3> 
+                                    {errors.images?
+                                        <div className="my-3">
+                                            <InputError error={errors.images}/>
+                                        </div>
+                                    :
+                                        null
+                                    }
                                     <ImageCarousel images={images} setImages={setImages}/>
                                 </div>
                             }
