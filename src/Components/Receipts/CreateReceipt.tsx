@@ -47,13 +47,10 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
           ingredients: defaultValues? defaultValues.ingredients: [],
           minCookDuration: defaultValues? defaultValues.minCookDuration: 30,
           maxCookDuration: defaultValues? defaultValues.maxCookDuration: 60,
-          videoLink: defaultValues? defaultValues.videoLink:  ""
+          videoLink: defaultValues?.videoLink? defaultValues.videoLink:  ""
           // Add more fields as needed
         };
     });
-    
-
-
     
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
@@ -73,7 +70,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
         const stepsError = arrayLengthValidator('Steps', formData.steps, 1, 30);
         if (stepsError) newErrors.steps = stepsError;
 
-        if(isUpdate){
+        if(!isUpdate){
             const imagesError = arrayLengthValidator('Images', images, 1, 30);
             if (imagesError) newErrors.images = imagesError;
         }
@@ -189,6 +186,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
 
         setErrors(newErrors)
         if (Object.keys(newErrors).length !== 0) {
+            console.log(newErrors)
             return
         }
         setFormSend(true)
@@ -198,8 +196,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
         for (let i = 0; i<formData.steps.length; i++) {
             formDataRequest.append(`Steps[${i}]`, formData.steps[i])
         }
-        console.log(formData.steps)
-        console.log(formDataRequest.get("Steps"))
+
         formDataRequest.append('VideoLink', formData.videoLink);
         formDataRequest.append('MinCookDuration', formData.minCookDuration.toString());
         formDataRequest.append('MaxCookDuration', formData.maxCookDuration.toString());
@@ -218,12 +215,13 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
         const route = isUpdate? RECEIPTS_ROUTE+`/${defaultValues?.id}`: RECEIPTS_ROUTE
 
         try {
+            setFormSend(true)
             const response = await fetch(route, {
                 method: method,
                 credentials: "include",
                 body: formDataRequest,
             });
-            console.log(response)
+
             const data = await response.json()
             console.log(data)
             if(!data.error && !data.errors){
@@ -375,14 +373,14 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
                         </div>                    
                     </div>
                     <div className="mt-4">
-                        <button
+                        <Button
                             disabled={formSend}
                             type="submit"
                             onClick={(e)=>handleSubmit(e)}
                             className="submit group-invalid:pointer-events-none group-invalid:opacity-30 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
                         >
                             {isUpdate? "Update":  "Create Receipt" }
-                        </button>
+                        </Button>
                         {isUpdate?
                             <Button onClick={()=>cancelFunction!()} color="red">
                                 Cancel

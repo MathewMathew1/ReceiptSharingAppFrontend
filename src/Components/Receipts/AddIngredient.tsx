@@ -67,7 +67,7 @@ const AddIngredient = ({addIngredient}: {addIngredient: (ingredient: Ingredient,
                 <label className="text-2xl" htmlFor="name">New Ingredient</label>
                 <div className="flex-1 flex-row m-3 bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg">     
                     <input
-                        className="w-[200px] border-r border-gray-300 bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg  rounded-none px-2 py-1 focus:outline-none focus:border-blue-500"
+                        className="w-[200px] sm:border-r sm:border-gray-300 bg-light-inputPrimaryBg text-light-text dark:text-dark-text dark:bg-dark-inputPrimaryBg  rounded-none px-2 py-1 focus:outline-none focus:border-blue-500"
                         type="text"
                         id="name"
                         placeholder="Ingredient Name"

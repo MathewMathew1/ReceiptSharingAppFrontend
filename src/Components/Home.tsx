@@ -49,7 +49,6 @@ export default function Home() {
           setReceipts(data.receipts)
           setIsThereNextPage(data.isThereNextPage)
         }
-        console.log(data)
       }catch(e){
         console.log(e)
       } 
