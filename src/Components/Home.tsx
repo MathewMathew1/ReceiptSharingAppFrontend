@@ -113,7 +113,7 @@ export default function Home() {
         {fetchedReceipts?
         <div>
           {receipts.length > 0?
-            <div className="flex justify-center gap-5 mt-4 align-center flex-wrap">
+            <div className="flex justify-center gap-5 mt-4  flex-wrap">
                 {receipts.map((receipt, index) => (
                   <ReceiptPreview receipt={receipt} key={`receipt ${index}`}/>
                 ))
