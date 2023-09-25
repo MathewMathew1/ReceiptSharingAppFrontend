@@ -260,7 +260,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
                                     Add Step
                                 </Button>
                             </div>
-                            <div className="flex flex-col mt-4 mb-4 gap-1">
+                            <div className="flex flex-col mt-4 mb-4 gap-1 md:w-[400px] ">
                                 <h3>Steps</h3>
                                 {errors.steps?
                                     <InputError error={errors.steps}/>
@@ -270,7 +270,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
                                 {formData.steps.map((step, index)=> (
                                     <div className="flex px-2 py-2 bg-light-infoBg dark:bg-dark-infoBg" key={`step ${index}`}>
                                         <div>{index+1}.</div>
-                                        <div className="flex-1 text-left">{step}</div>
+                                        <div className="flex-1 text-left break-all">{step}</div>
                                         <div className="flex flex-col justify-center">
                                             <BiSolidUpvote onClick={()=>moveInArrayUp(index, "steps")} fill={`${index===0? "grey": ""}`}/>
                                             <BiSolidDownvote onClick={()=>moveInArrayDown(index, "steps")} fill={`${index===formData.steps.length-1? "grey": ""}`}/>
@@ -295,7 +295,7 @@ const CreateReceipt: React.FC<CreateReceiptProps> = ({ isUpdate, defaultValues, 
                                     <div className="flex px-2 py-2 bg-light-infoBg dark:bg-dark-infoBg" key={`step ${index}`}>
                                         <div>{index+1}.</div>
                                         <div className="flex-1 text-left flex gap-2">
-                                            <div>
+                                            <div className="break-all">
                                                 {ingredient.name}
                                             </div>
                                             <div>
