@@ -89,7 +89,7 @@ const ReceiptComponent = () => {
             <div className="flex flex-col md:flex-row justify-center items-center md:gap-10">
                 <div>
                     <h3 className="text-[1.6rem]">Image previews</h3>
-                    <ImageCarousel images={[...receipt.imageLinks, ...receipt.imageLinks, ...receipt.imageLinks]}/>
+                    <ImageCarousel images={[...receipt.imageLinks]}/>
                 </div>
                 {receipt.videoLink?
                     <div className="flex flex-col">
