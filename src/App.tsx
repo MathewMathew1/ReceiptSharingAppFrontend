@@ -15,6 +15,7 @@ import UserReceipts from './Components/User/UserReceipts';
 import YourSubscribeReceipts from './Components/User/YourSubscribedReceipts';
 import YourReceipts from './Components/User/YourReceipts';
 import CurrentUserProfile from './Components/User/CurrentUserProfile';
+import ReceiptFeed from './Components/Receipts/ReceiptFeed';
 
 function App() {
   return (
@@ -47,6 +48,11 @@ function App() {
                 <Route path="/new/receipt" element={
                   <ProtectedRoute>
                     <CreateReceipt isUpdate={false}/>
+                  </ProtectedRoute>
+                } />
+                <Route path="/user/feed" element={
+                  <ProtectedRoute>
+                    <ReceiptFeed />
                   </ProtectedRoute>
                 } />
                 {/* Add more routes as needed */}
