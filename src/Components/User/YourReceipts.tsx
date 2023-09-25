@@ -19,8 +19,6 @@ const YourReceipts = () => {
     const [deleteModalInfo, setDeleteModalInfo] = useState<{open: boolean, receiptId: number}>({open: false, receiptId: 1})
     const [editingIndex, setEditingIndex] = useState<number|null>(null);
 
-    
-
     const [searchParams, setSearchParams] = useSearchParams();
 
     const {user} = useAuth()
