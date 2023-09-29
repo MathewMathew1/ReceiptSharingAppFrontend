@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ProfileImage } from "./ProfileImage";
 import { UserAuthor } from "../types/Receipt";
 import { useAuth } from "../Contexts/useAuth";
+import { Link } from "react-router-dom";
 
 
 const POSITION = {
@@ -48,12 +49,12 @@ const OtherUserProfileDropdown = ({user, position}:{user: UserAuthor, position: 
                         :
                             null
                         }
-                        <a
-                            href={`/profile/${user.id}`}
+                        <Link
+                            to={`/profile/${user.id}`}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-dark-secondaryBg dark:text-dark-text"
                         >
                             Profile
-                        </a>
+                        </Link>
                     </div>
                 </div>
             )}
