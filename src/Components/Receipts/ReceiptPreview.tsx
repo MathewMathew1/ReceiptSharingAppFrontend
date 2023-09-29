@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 const ReceiptPreview = ({receipt}: {receipt: Receipt}) => {
 
-    return <div className="flex-col glass w-[280px] h-[100%]">
+    return <div className="flex-col glass w-[280px]">
             <Link to={`/receipt/${receipt.id}`} className="text-light-text h-[100%] hover:text-light-text dark:hover:text-dark-text dark:text-dark-text">
                 <div className="flex flex-col h-[100%]">
                     <div className="flex justify-center h-[200px]">

@@ -99,7 +99,6 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
         return response.json()
     })
     .then((data)=> {
-      console.log(data)
       if(!data.error && !data.errors){
         subscriptionUsers.set(data.subscriptions)
       }
@@ -219,7 +218,7 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
       });
   
       const data = await response.json();
-      console.log(data)
+
       if (!data.error && !data.errors) {
         if (isUserSubscribed) {
           toastUpdate.addToast({toastText: "Unsubscribed from user successfully", severity: severityColors.success})

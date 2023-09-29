@@ -64,7 +64,6 @@ const YourReceipts = () => {
                 return response.json()
             })
             .then((data)=>{
-                console.log(data)
                 if(data.receipts){
                     setTotalAmountOfReceipts(data.count)
                     setReceipts(data.receipts)
