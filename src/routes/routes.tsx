@@ -6,8 +6,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     BASE_ROUTE_URL = "https://localhost:7234"
 }
 else{
-    BASE_API_ROUTES_URL = "https://receiptsharingapp.azurewebsites.net/api/"
-    BASE_ROUTE_URL = "https://receiptsharingapp.azurewebsites.net/"
+    BASE_API_ROUTES_URL = "https://receiptsharingappbackend.onrender.com/api/"
+    BASE_ROUTE_URL = "https://receiptsharingappbackend.onrender.com/"
 }
 
 const GOOGLE_LOGIN_ROUTE  = BASE_API_ROUTES_URL + "Auth/google"
